@@ -89,7 +89,7 @@ Se desarrolló una API completa en Java usando Spring Boot para gestionar produc
 
 ### Características de la implementación:
 
-- **Framework:** Spring Boot 3.3.5 (Java 17)
+- **Framework:** Spring Boot 3.3.5 (Java 21)
 - **Almacenamiento:** Lista en memoria (datos simulados)
 - **Formato:** JSON (estándar en APIs modernas)
 - **Endpoints:** Múltiples rutas para diferentes operaciones
