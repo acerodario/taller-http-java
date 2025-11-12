@@ -31,8 +31,8 @@ Estos métodos forman parte del protocolo HTTP (Hypertext Transfer Protocol) y s
 | **PATCH** | Modifica parcialmente un recurso. | Cambiar solo uno o varios campos. | `PATCH /productos/2` |
 | **DELETE** | Elimina un recurso existente. | Borrar un elemento por su ID. | `DELETE /productos/2` |
 | **OPTIONS** | Indica los métodos HTTP permitidos en una ruta. | Verificar compatibilidad antes de hacer peticiones. | `OPTIONS /productos` |
-| **HEAD** | Igual que GET, pero sin cuerpo (solo cabeceras). | Verificar existencia o metadatos sin descargar datos. | `HEAD /productos` |
-| **TRACE** | Devuelve la solicitud tal como llegó al servidor (eco). | Depuración de la ruta HTTP (no se usa en producción). | `TRACE /productos` |
+| **HEAD** | Igual que GET, pero sin cuerpo (solo cabeceras). | Verificar existencia o metadatos sin descargar datos. | `HEAD /productos/1` |
+| **TRACE** | Devuelve la solicitud tal como llegó al servidor . | Depuración de la ruta HTTP (no se usa en producción). | `TRACE /productos` |
 | **CONNECT** | Establece un túnel TCP/HTTPS. | Usado por proxies para conexiones seguras. | `CONNECT example.com:443` |
 
 ### Explicación detallada de cada método:
@@ -274,7 +274,7 @@ Se realizaron pruebas exhaustivas utilizando Postman y curl como clientes HTTP p
 | **DELETE** | Elimina un producto de la lista de forma permanente | Completo |
 | **OPTIONS** | Muestra los métodos HTTP permitidos en el endpoint | Completo |
 | **HEAD** | Retorna solo las cabeceras HTTP sin el cuerpo de la respuesta | Completo |
-| **TRACE** | Devuelve un eco de la petición recibida con todos sus headers | Completo |
+| **TRACE** | Spring Boot bloquea este método por defecto por razones de seguridad | Incompleto |
 | **CONNECT** | No implementable en Spring Boot - requiere infraestructura de proxy especializada | No aplicable |
 
 ### Notas sobre las pruebas:
@@ -395,11 +395,11 @@ Todas las pruebas documentadas demuestran el funcionamiento correcto de la API y
 
 5. Métodos como CONNECT y TRACE son menos comunes en el desarrollo web cotidiano y se reservan para tareas especializadas de infraestructura de red y depuración. No todos los frameworks web los implementan por defecto, y en muchos casos es necesario configurarlos manualmente o simplemente no son aplicables al nivel de aplicación.
 
-6. Spring Boot demuestra ser un framework robusto y completo para crear APIs REST profesionales en Java. Su sistema de anotaciones (`@GetMapping`, `@PostMapping`, etc.) hace que el código sea limpio, legible y fácil de mantener, permitiendo mapear métodos HTTP a funciones de manera directa y declarativa.
+6. Spring Boot demuestra ser un framework robusto y completo para crear APIs REST profesionales en Java. Su sistema de anotaciones hace que el código sea limpio, legible y fácil de mantener, permitiendo mapear métodos HTTP a funciones de manera directa y declarativa.
 
 7. El uso apropiado de códigos de estado HTTP (200 OK, 201 Created, 404 Not Found) junto con los métodos correctos mejora significativamente la calidad profesional de una API y facilita el manejo de errores en aplicaciones cliente.
 
-8. Las validaciones de datos son esenciales en cualquier API profesional. El controlador implementado demuestra cómo validar entradas (nombres no vacíos, precios positivos) antes de procesarlas, previniendo datos corruptos y mejorando la experiencia del usuario con mensajes de error claros.
+8. Las validaciones de datos son esenciales en cualquier API profesional. El controlador implementado demuestra cómo validar entradas  antes de procesarlas, previniendo datos corruptos y mejorando la experiencia del usuario con mensajes de error claros.
 
 ---
 
